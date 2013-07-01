@@ -13,8 +13,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 import com.facebook.Request;
 import com.facebook.Response;
@@ -53,6 +55,17 @@ public class SelectionFragment extends Fragment {
 	    gvResults = (GridView) view.findViewById(R.id.gvResults);
 		imageAdapter = new ImageResultArrayAdapter(view.getContext(), imageResults);
 		gvResults.setAdapter(imageAdapter);
+		gvResults.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> adapter, View parent, int position, long rowId) {
+				Intent i = new Intent(getActivity(), ImageDisplayActivity.class);
+				ImageResult imageResult = imageResults.get(position);
+				i.putExtra("result", imageResult);
+				getActivity().startActivity(i);
+			}
+		});
+		
+		
 		//imageSearch(view);
 	    
 	    // Check for an open session
