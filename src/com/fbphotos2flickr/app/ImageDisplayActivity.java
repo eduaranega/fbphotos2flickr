@@ -11,6 +11,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.ByteArrayBuffer;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
@@ -39,7 +41,7 @@ public class ImageDisplayActivity extends Activity {
 	    task.execute(new String[] { result.getFullUrl() });
 				
 	}
-	
+		
 	private class DownloadWebPageTask extends AsyncTask<String, Void, String> {
 	    @Override
 	    protected String doInBackground(String... urls) {
@@ -70,6 +72,12 @@ public class ImageDisplayActivity extends Activity {
                 fos.write(baf.toByteArray());
                 fos.close();
                 Log.d(TAG, "Download Completed in" + ((System.currentTimeMillis() - startTime) / 1000) + " sec");
+                
+                // scan to show on gallery
+        	    Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        	    Uri contentUri = Uri.fromFile(file);
+        	    mediaScanIntent.setData(contentUri);
+        	    sendBroadcast(mediaScanIntent);
 	        	
 	        } catch (Exception e) {
 	          e.printStackTrace();
