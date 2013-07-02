@@ -93,7 +93,7 @@ public class FlickrUploadPhotoTask extends AsyncTask<OAuth, Void, String> {
 		}
 
 		Toast.makeText(flickrjAndroidSampleActivity.getApplicationContext(),
-				response, Toast.LENGTH_SHORT).show();
+				"Upload Completed", Toast.LENGTH_SHORT).show();
 
 	}
 
