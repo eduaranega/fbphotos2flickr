@@ -5,7 +5,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
-        android:orientation="horizontal" >
+        android:orientation="horizontal" 
+        android:background="#303040" >
     
    	<com.facebook.widget.ProfilePictureView
    	    android:id="@+id/selection_profile_pic"
@@ -27,7 +28,8 @@
         android:layout_marginTop="23dp"
         android:layout_marginLeft="23dp"
         android:layout_below="@+id/selection_profile_pic"
-        android:numColumns="3" >
+        android:numColumns="3" 
+        android:background="#303040" >
     </GridView>
 
    	   	<TextView
@@ -37,7 +39,7 @@
    	   	    android:layout_above="@+id/gvResults"
    	   	    android:layout_marginLeft="23dp"
    	   	    android:layout_toRightOf="@+id/selection_profile_pic"
-   	   	    android:textColor="#333"
+   	   	    android:textColor="@android:color/white"
    	   	    android:textSize="18sp" />
     
 </RelativeLayout>

@@ -61,6 +61,7 @@ public class SelectionFragment extends Fragment {
 				Intent i = new Intent(getActivity(), ImageDisplayActivity.class);
 				ImageResult imageResult = imageResults.get(position);
 				i.putExtra("result", imageResult);
+				i.putExtra("position", position);
 				getActivity().startActivity(i);
 			}
 		});
